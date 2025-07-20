@@ -35,8 +35,8 @@ To learn complex patterns in data, nonlinearity is introduced by activation func
 In this work, I have introduced ReLU function for hidden layer:
 ```math
 \sigma(x) = \begin{cases}
-0 & \text{if} x\leq 0 \\
-x & \text{if} x>0 
+0 & \text{if } x\leq 0 \\
+x & \text{if } x>0 
 \end{cases}
 ```
 Since this is a multi-class classification problem, the activation function for output layer is the softmax function:
