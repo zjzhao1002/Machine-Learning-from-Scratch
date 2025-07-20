@@ -22,12 +22,12 @@ Neurons are connected by weighted links, representing the strength of the connec
 These weights are adjusted during the learning process. 
 
 ### Neuron
-A neuron takes n inputs $\hat{x}=(x_1, x_2, ..., x_n)$ and produce a single output 
+A neuron takes n inputs $x=(x_1, x_2, ..., x_n)$ and produce a single output 
 ```math
-z = W\cdot \hat{x}+\hat{b},
+z = W\cdot x+b,
 ```
-where $W$ is the weight matrix to connect this layer to next layer, and $\hat{b}$ is the bias. 
-$W$ and $\hat{b}$ are learnable parameters. A neural network is trained to optimize them.
+where $W$ is the weight matrix to connect this layer to next layer, and $b$ is the bias. 
+$W$ and $b$ are learnable parameters. A neural network is trained to optimize them.
 
 ### Activation Function
 The output $z$ is just a linear transformation of the inputs. We can only use this network to learn linear relationship. 
@@ -44,3 +44,20 @@ Since this is a multi-class classification problem, the activation function for 
 \sigma(x)_i = \frac{e^{x_i}}{\sum^{C}_{j=1}e^x_j},
 ```
 $C$ is the number of classes. In our case, $C=10$.
+So the final output of a neuron is 
+```math
+a = \sigma(z) = \sigma\left( W\cdot x+b \right)
+```
+
+### Feedforward
+Data are input to the input layer and then pass through the hidden layer. 
+We use previous equations to calculate activation $a$ for each layer. 
+Finally, the activation from the last hidden layer is passed to output layer to make predictions.
+The activation of the output layer gives the predictions.
+This process is called feedforward.
+
+### Backpropagation
+The parameters $W$ and $b$ are learned by gradient descent. The goal of this method is minimizing the lost function
+```math
+\mathcal{L}(a,y) =  -\sum^C_{j=1}y_j\log{a_j}
+```
