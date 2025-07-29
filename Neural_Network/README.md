@@ -10,7 +10,7 @@ The purpose of this network is to recognize handwritten digits in the
 [MNIST Dataset](https://www.kaggle.com/datasets/animatronbot/mnist-digit-recognizer).
 I mainly follow this [book](http://neuralnetworksanddeeplearning.com/).
 
-## Maths
+## Algorithm
 A typical neural network is looked like:
 
 ![image from wikipedia](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Neural_Network/Colored_neural_network.svg)
@@ -112,4 +112,15 @@ where $x$ represents a data sample for training, $n$ is the number of $x$, and $
 ### Training
 After updating the parameters, we can feedforward again by new parameters. 
 We should has a smaller $L$. Repeating the feedforward and backpropagation `epochs` times, 
-we can minimize the loss function and get better predictions. 
+we can minimize the loss function and optimize the parameters.
+
+### Predictions
+After the optimization of the parameters, we can input some data points to the network. 
+The feedforward process can use the optimal parameters to give the prediction for each data point.
+With the `epochs=100` and `eta=1` (learning rate), the network can reach around 85% accuracy for both training and test dataset. 
+This is an acceptable result for such naive from scratch implementation.
+
+## Conclusion
+I have build a neural network from scratch to understand the maths and key concepts. 
+It is a beautiful algorithm and the basis of modern machine learning models. 
+This also means many things can be improved. 
