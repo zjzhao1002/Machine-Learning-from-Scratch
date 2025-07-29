@@ -79,5 +79,5 @@ With the default setup in my code, the accuracy can reach 86% for the training d
 ## Conclusion
 Decision tree is a simple machine learning algorithm. 
 I built it from scratch to classify the [500 Person Gender-Height-Weight-Body Mass Index](https://www.kaggle.com/datasets/yersever/500-person-gender-height-weight-bodymassindex) dataset. 
-In principle, decision can be also used for regression problem. 
+In principle, decision tree can be also used for regression problem. 
 We just need to make small modification to this code. I may do that in the future.
