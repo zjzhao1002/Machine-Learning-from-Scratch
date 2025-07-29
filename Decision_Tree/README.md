@@ -10,7 +10,7 @@ The purpose of this classifier is to predict if a person is obese by using this
 I mainly follow this [blog](https://anderfernandez.com/en/blog/code-decision-tree-python-from-scratch/) and 
 this [notebook](https://www.kaggle.com/code/fareselmenshawii/decision-tree-from-scratch/).
 
-## Maths
+## Algorithm
 A typical decision tree is looked like:
 ![decision tree](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Decision_Tree/decision_tree.png)
 
@@ -36,3 +36,20 @@ $\chi$ is the set of all classes, and $\sum$ is the sum over the possible classe
 Entropy is a way to measure impurity or randomness in data points. 
 It goes from 0 to 1. High entropy means these data points are impure and they are belonged to different classes. 
 In contrast, we get low entropy if the splitted data group have a dominant class.
+So we want to search for splits with the lowest entropy.
+
+### Information Gain
+Information gain is a metric that indicates the improvement when making different partitions. 
+It is defined by
+```math
+IG = H_\text{node} - w_\text{left}H_\text{left}-w_\text{right}H_\text{right}
+```
+where
+* $H_\text{node}$ is the entropy of the current node.
+* $H_\text{left}$ and $H_\text{right}$ are the entropies at the left and right subsets after splitting.
+* $w_\text{left}$ and $w_\text{right}$ are the proportion of data samples at the left and right subset, respectively.
+
+The best split should have the highest information gain. 
+We can loop over all features in the dataset and calculate the information gain, 
+and choose the split with highest information gain to split data. 
+
