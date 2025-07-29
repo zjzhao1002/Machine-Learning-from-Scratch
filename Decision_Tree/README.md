@@ -53,3 +53,31 @@ The best split should have the highest information gain.
 We can loop over all features in the dataset and calculate the information gain, 
 and choose the split with highest information gain to split data. 
 
+### Build The Decision Tree
+To build a decision tree, we have to define 3 hyperparemeters: 
+* `max_depth`: The maximum depth of the decision tree.
+* `min_samples`: The minimum number of data samples required to split an internal node.
+* `min_information_gain`: The minimum information gain required to split an internal node.
+
+With these hyperparemeters, we can build a decision tree step by step:
+1. Make sure the conditions established by `max_depth` and `min_simple` are being fulfilled.
+2. Calculate the information gain for all features.
+3. Choose the split with the highest information gain.
+4. Make sure the highest information gain is greater than the `min_information_gain`.
+5. Split dataset by the best split into left and right dataset.
+6. Repeat 1~5 by using the children dataset until one of the conditions in step 1 or 4 is not fulfilled.
+7. The node that does not fulfilled the conditions above is a leaf node.
+We get the most occuring classes in the dataset of this node as the prediction.
+
+### Make The Predictions
+After building the decision tree, we can use it to make the predictions. 
+We can input the feature matrix to get the predictions. 
+All data points will go through the tree and reach the node they belonged to.
+The leaf values are their predictions. 
+With the default setup in my code, the accuracy can reach 86% for the training dataset, and 80% for the test dataset.
+
+## Conclusion
+Decision tree is a simple machine learning algorithm. 
+I built it from scratch to classify the [500 Person Gender-Height-Weight-Body Mass Index](https://www.kaggle.com/datasets/yersever/500-person-gender-height-weight-bodymassindex) dataset. 
+In principle, decision can be also used for regression problem. 
+We just need to make small modification to this code. I may do that in the future.
