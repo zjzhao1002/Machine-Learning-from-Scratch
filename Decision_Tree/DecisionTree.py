@@ -145,6 +145,7 @@ class DecisionTree():
             The root node of the built decision tree.
         """
         n_samples = data.shape[0]
+        y = data[:, -1]
         if n_samples > self.min_samples and current_depth < self.max_depth:
             best_feature = self.select_feature_to_split(data)
             if best_feature["gain"] > self.min_information_gain:
@@ -155,8 +156,10 @@ class DecisionTree():
                 left_node = self.build_tree(left, current_depth+1)
                 right_node = self.build_tree(right, current_depth+1)
                 return TreeNode(feature, threshold, left_node, right_node, gain)
+            else:
+                leaf_value = self.caculate_leaf_value(y)
+                return TreeNode(value=leaf_value)
         
-        y = data[:, -1]
         leaf_value = self.caculate_leaf_value(y)
         return TreeNode(value=leaf_value)
     
