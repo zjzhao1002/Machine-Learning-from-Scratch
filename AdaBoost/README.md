@@ -45,3 +45,35 @@ With this weighted error, we can calculate a value called importance (amount of 
 ```
 The derivation of the formula can be found on [Wikipedia](https://en.wikipedia.org/wiki/AdaBoost).
 The $\alpha_{m}$ indicates the importance of the $m$-th iteration. 
+
+### Update The Weights
+After finishing $m$-th iteration, the weight should be updated by
+```math
+w_i^{(m+1)} = w_i^{(m)}\exp{\alpha_m}(y_{\text{true}}\neq y_{\text{pred}})
+```
+This formula give more weights to the misclassified points. 
+Finally, the weights should be normilized:
+```math
+w_i^{(m+1)} \to w_i^{(m+1)}/\sum{w_i^{(m+1)}}
+```
+
+### Train The AdaBoost Model
+With the concepts and formulae above, we can train the AdaBoost model by following steps:
+1. Initialize the sample weights by $1/N$ for data samples.
+2. A decision tree is trained by using these weights.
+3. Calculate the weighted error and $\alpha$.
+4. Update the sample weights by the $\alpha$ value.
+5. Repeat step 2~4 `n_estimators` times.
+
+### Prediction
+Each weak models should have their predictions $y^{(m)}_{\text{pred}}$. The final predictions of the AdaBoost model is
+```math
+y_{\text{final_pred}} = \sum_{m} \alpha_m y^{(m)}_{\text{pred}}
+```
+As the decision tree project, this classifier is test by predicting if a person is obese by using this 
+[500 Person Gender-Height-Weight-Body Mass Index](https://www.kaggle.com/datasets/yersever/500-person-gender-height-weight-bodymassindex) 
+With the setup in the main.py file, I got the 84% accuracy for the training data, while the accuracy for the test data is 85%.
+
+## Conclusion
+AdaBoost is an ensemble method with sequential decision trees. These trees must be trained by weighted samples. 
+The sample weights should be updated `n_estimators` times in the training process. 
