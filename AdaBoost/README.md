@@ -57,7 +57,7 @@ w_i^{(m+1)} = w_i^{(m)}\exp{\alpha_m}(y_{\text{true}}\neq y_{\text{pred}})
 This formula give more weights to the misclassified points. 
 Finally, the weights should be normilized:
 ```math
-w_i^{(m+1)} \to w_i^{(m+1)}/\sum{w_i^{(m+1)}}
+w_i^{(m+1)} \to \frac{w_i^{(m+1)}}{\sum{w_i^{(m+1)}}}
 ```
 
 ### Train The AdaBoost Model
