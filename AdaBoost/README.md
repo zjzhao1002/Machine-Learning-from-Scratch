@@ -68,7 +68,7 @@ With the concepts and formulae above, we can train the AdaBoost model by followi
 ### Prediction
 Each weak models should have their predictions $y^{(m)}_{\text{pred}}$. The final predictions of the AdaBoost model is
 ```math
-y_{\text{final_pred}} = \sum_{m} \alpha_m y^{(m)}_{\text{pred}}
+y_{\text{final}} = \sum_{m} \alpha_m y^{(m)}_{\text{pred}}
 ```
 As the decision tree project, this classifier is test by predicting if a person is obese by using this 
 [500 Person Gender-Height-Weight-Body Mass Index](https://www.kaggle.com/datasets/yersever/500-person-gender-height-weight-bodymassindex) 
