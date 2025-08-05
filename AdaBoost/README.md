@@ -5,7 +5,10 @@ AdaBoost is short for **Ada**ptive **Boost**ing.
 In this model, all data points have their weights. 
 These weights are adaptive in the training process. 
 After each iteration more weights are given to the misclassified points in the previous step. 
-This process repeats and in the end all models are combined to make final predictions.
+This process repeats and in the end all models are combined to make final predictions. 
+I learned the concepts and maths by this [blog](https://blog.devgenius.io/adaboost-from-scratch-f8979d961948), 
+this [notebook](https://www.kaggle.com/code/egazakharenko/adaboost-samme-r2-from-scratch-using-python) and 
+[Wikipedia](https://en.wikipedia.org/wiki/AdaBoost).
 
 ## Algorithm
 ### Decision Tree with Weighted Data
