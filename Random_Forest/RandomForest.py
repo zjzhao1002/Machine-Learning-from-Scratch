@@ -52,7 +52,6 @@ class RandomForest():
         """
         Build a random forest classifier from the training dataset (X, y).
         Args:
-        Args:
             X: The feature matrix.
             y: The target values.
         """
