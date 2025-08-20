@@ -14,6 +14,7 @@ I mainly follow this [book](http://neuralnetworksanddeeplearning.com/).
 A typical neural network is looked like:
 
 ![image from wikipedia](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Neural_Network/Colored_neural_network.svg)
+*image from wikipedia*
 
 The circles in this image are called neurons. Neurons are organized into layers: 
 input layer (receives initial data), hidden layers (perform computations), and output layer (provides the final result). 
