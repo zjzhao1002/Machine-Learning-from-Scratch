@@ -142,7 +142,7 @@ Finally, we can calculate the derivative with respect to the kernel weights:
 ```
 where $x_{ij}$ represents the position of the input image data. Finally, we can update the kernel weights:
 ```math
-\omega_{ij} \to \omega_{ij} - \eta\frac{\partial L}{\partial \omega_{ij}}, \\
+\omega_{ij} \to \omega_{ij} - \eta\frac{\partial L}{\partial \omega_{ij}}, 
 ```
 
 ### Training and Predictions
