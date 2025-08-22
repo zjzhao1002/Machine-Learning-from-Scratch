@@ -163,7 +163,7 @@ The kernel weights, weights for linear layer and biases for linear layer should 
 After the optimization of the parameters, we can input some data points to the network. 
 The feedforward process can use the optimal parameters to give the prediction for each data point.
 With the `epochs=10` and `eta=0.01`, the network can reach around 82% accuracy for training dataset and 81% accuracy for test dataset. 
-It seems that this network work correctly.
+We can say that this network works correctly.
 
 ## Conclusion
-I have built a CNN from scratch, and learned the key concepts and maths of it. It seems that this model work for the MNIST dataset. 
+I have built a CNN from scratch, and learned the key concepts and maths of it. This model works for the MNIST dataset. 
