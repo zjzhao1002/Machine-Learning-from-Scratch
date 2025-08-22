@@ -49,7 +49,18 @@ Fig. 2d shows the *dilation rate=2* case.
 Dilation rate is a parameter in the convolution operation that controls how far apart the elements of the kernel (filter) are spaced. 
 When the kernel size is large, we have to optimize more weights. In this case we can use dilation rate to reduce parameters, 
 because the kernel values are interspersed with zeros. 
-For simplicity, *stride=1* and *dilation rate=1* are assumed in my code.
+For simplicity, *stride=1* and *dilation rate=1* are assumed in my code. 
+
+The Fashion MNIST dataset contains a number of 2D images. 
+If $x_{ij}$ represents an element of image and $\omega_{mn}$ is an entry of the kernel, 
+The output ($z_{ij}$) can be calculated by 
+```math
+z_{ij} = \sum^K_{m=1}\sum^K_{n=1}\omega_{mn}x_{i+m-2, j+n-2}
+```
+We can apply an activation function to introduce nonlinearity, which is ReLU function in my code:
+```math
+a^C_{ij} = ReLU(z_{ij})
+```
 
 If we only apply a single convolution, information is likely be lost. To avoid this, we can use more than one kernel in one layer. 
 These kernels perform convolutions parallelly. Each convolution produces a new set of hidden variables, which is called *feature map* or *channel*. 
@@ -132,17 +143,17 @@ This $\delta^f$ will be reshaped and upsampled, but values are not changed.
 Assuming after reshape and upsampling, we have a matrix $\delta^p$. 
 The derivative of loss function respect to weighted output in the convolutional layer is 
 ```math
-\delta^c = \frac{\partial L}{\partial z_{ij}} = \delta^p \sigma^\prime(z)
+\delta^C = \frac{\partial L}{\partial z_{ij}} = \delta^p \sigma^\prime(z)
 ```
 where $\sigma^\prime$ is the derivative of the ReLU function, $z$ is the weighted output of the convolutional layer. 
 Finally, we can calculate the derivative with respect to the kernel weights:
 ```math
-\frac{\partial L}{\partial \omega_{ij}} = \frac{\partial L}{\partial z_{ij}}\frac{\partial z_{ij}}{\partial \omega_{ij}}
-= \frac{\partial L}{\partial z_{ij}} x_{ij}
+\frac{\partial L}{\partial \omega_{mn}} = \sum_{i}\sum_{j}\frac{\partial L}{\partial z_{ij}}\frac{\partial z_{ij}}{\partial \omega_{mn}}
+= \sum_{i}\sum_{j}\frac{\partial L}{\partial z_{ij}} x_{i+m-2, j+n-2}
 ```
-where $x_{ij}$ represents the position of the input image data. Finally, we can update the kernel weights:
+It is another convolutional operation. Finally, we can update the kernel weights:
 ```math
-\omega_{ij} \to \omega_{ij} - \eta\frac{\partial L}{\partial \omega_{ij}}, 
+\omega_{mn} \to \omega_{mn} - \eta\frac{\partial L}{\partial \omega_{mn}}, 
 ```
 
 ### Training and Predictions
