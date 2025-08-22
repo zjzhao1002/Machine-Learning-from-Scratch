@@ -57,7 +57,7 @@ The output ($z_{ij}$) can be calculated by
 ```math
 z_{ij} = \sum^K_{m=1}\sum^K_{n=1}\omega_{mn}x_{i+m-2, j+n-2}
 ```
-We can apply an activation function to introduce nonlinearity, which is ReLU function in my code:
+where $K$ is the kernel size. We can apply an activation function to introduce nonlinearity, which is ReLU function in my code:
 ```math
 a^C_{ij} = ReLU(z_{ij})
 ```
