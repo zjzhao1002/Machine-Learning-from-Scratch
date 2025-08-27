@@ -57,5 +57,7 @@ w_i \to w_i - \eta \frac{\partial L}{\partial w_i}
 ```
 where $\eta$ is the learning rate.
 
-By iteratively performing the forward pass, computing the cost, performing the backward pass, and updating the parameters, 
+By iteratively performing the forward pass, computing the loss function, performing the backward pass, and updating the parameters, 
 the model learns to make better predictions. 
+
+This plot show the 
