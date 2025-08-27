@@ -59,5 +59,24 @@ where $\eta$ is the learning rate.
 
 By iteratively performing the forward pass, computing the loss function, performing the backward pass, and updating the parameters, 
 the model learns to make better predictions. 
+The number of iterations is set by `epochs`. 
+If the loss of the $n$ iteration is almost the same as the $n-1$ iteration, 
+we can say the model is converged and stop runing early. 
+In this case, we have 
+```math
+L_n - L_{n-1} < t
+```
+where t is the tolerance for convergence.
 
-This plot show the 
+This plot show the loss vs. epoch in the training process. Here, `epochs=300` and `eta=1.0e-5` are set.
+
+![Loss vs. epoch](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Linear_Regression/loss.png)
+
+### Predictions
+
+After the training process, the loss is reduced to 45.7 in my test, while the test loss 44.5. 
+It seems that the model works correctly.
+
+## Conclusion
+Linear regression is a simple machine learning model. 
+Its algorithm is not complicate and easy to implement. 
