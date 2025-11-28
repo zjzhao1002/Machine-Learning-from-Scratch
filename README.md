@@ -9,5 +9,5 @@ The following models have been built and test:
 * [Random Forest](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Random_Forest)
 * [Adaptive Boosting (AdaBoost)](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/AdaBoost)
 
-There is also an generative pre-trained transformer (GPT) in the following repository:
+There is also an generative pre-trained transformer (GPT) in ohter repository:
 * [Generative Pre-Trained Transformer (GPT)](https://github.com/zjzhao1002/GPT-from-Scratch)
