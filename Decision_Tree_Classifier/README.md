@@ -1,4 +1,4 @@
-# Decision Tree from Scratch
+# Decision Tree Classifier from Scratch
 
 ## Motivation
 Decision tree is a supervised learning approach algorithm, used for both classification and regression tasks. 
@@ -12,7 +12,7 @@ this [notebook](https://www.kaggle.com/code/fareselmenshawii/decision-tree-from-
 
 ## Algorithm
 A typical decision tree is looked like:
-![decision tree](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Decision_Tree/decision_tree.png)
+![decision tree](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Decision_Tree_Classifier/decision_tree.png)
 
 A tree is built by splitting the source dataset, constituting the root node of the tree, 
 into subsets, which constitute the successor children. These subsets are also called sub-tree.
