@@ -7,7 +7,7 @@ For classification tasks, the output of the random forest is the class selected 
 For regression tasks, the output is the average of the predictions of the trees. 
 
 To understand the key concepts and algorithm of random forest, I built a random forest classifier from scratch. 
-This is based on the [decision tree I built](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree). 
+This is based on the [decision tree I built](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree_Classifier). 
 As the decision tree project, this classifier is test by predicting if a person is obese by using this 
 [500 Person Gender-Height-Weight-Body Mass Index](https://www.kaggle.com/datasets/yersever/500-person-gender-height-weight-bodymassindex) dataset. 
 The main references are this [article](https://carbonati.github.io/posts/random-forests-from-scratch/) 
