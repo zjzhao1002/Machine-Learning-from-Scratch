@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from TreeNode import TreeNode
 
-class DecisionTree():
+class DecisionTreeClassifier():
     """
     A decision tree classifier
     """
