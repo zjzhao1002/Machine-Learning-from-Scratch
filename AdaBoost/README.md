@@ -13,7 +13,7 @@ this [notebook](https://www.kaggle.com/code/egazakharenko/adaboost-samme-r2-from
 ## Algorithm
 ### Decision Tree with Weighted Data
 The first step of this algorithm is create a weak model which can handle weighted data. 
-I develop the previous [decision tree](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree) code for this purpose. 
+I develop the previous [decision tree](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree_Classifier) code for this purpose. 
 With the weighted data, the probability of the certain class $x$ is 
 ```math
 p(x) = \frac{\sum w(x)}{W}
