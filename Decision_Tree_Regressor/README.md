@@ -7,6 +7,7 @@ It is a simple model and easy to interpret.
 I have already built a [decision tree classifier](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree_Classifier) to understand the key concepts.
 In this mini project, I modify the previous codes to perform a regression. 
 This model is test by the [Student Performance](https://www.kaggle.com/datasets/nikhil7280/student-performance-multiple-linear-regression/) dataset. 
+The goal is predicting the student performance by using other features.
 
 ## Algorithm
 ### Lost Function
