@@ -29,6 +29,14 @@ def train_test_split(X: np.ndarray, y: np.ndarray, random_state: int=41, test_si
     return (X_train, X_test, y_train, y_test)
 
 def compute_mse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """
+    This function compute the Mean Square Error. 
+    Args:
+        y_true: The true value of the target variable
+        y_pred: The prediction of the model.
+    Returns:
+        The Mean Square Error.
+    """
     return np.mean((y_true-y_pred)**2)
 
 if __name__ == "__main__":
