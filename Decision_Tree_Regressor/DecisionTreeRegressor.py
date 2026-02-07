@@ -5,7 +5,7 @@ class DecisionTreeRegressor():
 
     def __init__(self, max_depth: int=2, min_samples: int=20, min_information_gain: float=1e-20):
         """
-        The constructor for DecisionTree class.
+        The constructor for DecisionTreeRegressor class.
         Args:
             max_depth: The maximum depth of the decision tree.
             min_samples: The minimum number of data samples required to split an internal node.
@@ -16,7 +16,18 @@ class DecisionTreeRegressor():
         self.min_information_gain = min_information_gain
 
     def variance(self, y: np.ndarray):
-        return np.mean((y-np.mean(y))**2)
+        """
+        A function to compute variance.
+        Args: 
+            y: Input numpy array
+        Returns:
+            var: The variance of y
+        """
+        if len(y) == 0:
+            var = 0
+        else: 
+            var = np.mean((y-np.mean(y))**2)
+        return var
     
     def information_gain(self, parent: np.ndarray, left: np.ndarray, right: np.ndarray) -> float:
         """
@@ -156,11 +167,11 @@ class DecisionTreeRegressor():
 
     def predict(self, X: np.ndarray):
         """
-        This function predicts the class labels for each instance in the feature matrix X.
+        This function predicts the target value for each instance in the feature matrix X.
         Args:
             X: The feature matrix to make predictions for.
         Returns:
-            A list of predicted class labels.
+            A list of predicted target values.
         """
         predictions = []
         for x in X:
