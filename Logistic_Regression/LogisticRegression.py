@@ -30,7 +30,7 @@ class LogisticRegression:
         A function to compute the cross entropy loss.
         Args:
             y_true: The true labels for each data point.
-            y_pred: The predicted probability for each data point.
+            y_pred: The predicted probabilities for each data point.
         Returns:
             The value of cross entropy loss.
         """
