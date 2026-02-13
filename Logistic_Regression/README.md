@@ -52,7 +52,7 @@ where $$\eta$$ is the `learning rate`. We update these parameters `iterations` t
 
 ## Result
 With `learning_rate=0.001` and `iterations=100`, I got cross entropy loss $$L=0.1724$$ finally. 
-The accuracy reached $$92\%$$ for the training dataset and $$95\%$$ for the test dataset. 
+The accuracy reached 92% for the training dataset and 95% for the test dataset. 
 We can say this model works well. 
 
 ## Conclusion
