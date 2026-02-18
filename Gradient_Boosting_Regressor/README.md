@@ -17,7 +17,7 @@ We are going to predict contineous variable $y$ by a vector of variables $x=(\te
 \hat{y}_i = F(x_i), 
 ```
 where $$\hat{y}_i$$ is the predicted values of this model. 
-As other machine learning models, to train the model $$F$$, we have to minimize a lost function. 
+As other machine learning models, to train the model $$F$$, we have to minimize a loss function. 
 For a regression model, a useful option is the mean squared error (MSE): 
 ```math
 L_\text{MSE} = \frac{1}{n}\sum_{i}(y_i-F(x_i))^2
