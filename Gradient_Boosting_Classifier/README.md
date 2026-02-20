@@ -63,5 +63,37 @@ The $$r_{ik}$$ is so-called pseudo residual, which is just the negative gradient
 Now we can train $$K$$ models to fit the pseudo residuals. 
 Since it becomes a problem to predict continuous variables, we should use a regression model like 
 [decision tree regressor](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree_Regressor).
-However, this model can only predict the **pseudo** residuals rather than the $$F_k(X)$$.
+However, this model can only predict the **pseudo** residuals rather than the $$F_k(X)$$. 
+We define the output of the regression tree as $$h_k(X)$$. 
+As we have seen in [gradient boosting for regression](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Gradient_Boosting_Regressor), 
+if we set the `n_estimators` to $$M$$, in the $$m$$ step,
+the relation of $$F_k(X)$$ and $$h_k(X)$$ is 
+```math
+F_{k,m}(X) = F_{k,m-1}(X) + \rho_m h_{k,m}(X)
+```
+In the gradient boosting regressor, $$\rho_m$$ is just the `learning_rate`, but it is complicated for classification. 
+For a regression tree, we have
+```math
+h_k(X) = \sum^{J}_{j=1}b_{jk}1(X\in R_{jk}),
+```
+where $$J$$ is the number of terminal nodes of the $$k$$-th tree. 
+$$R_{jk}$$ represents the regions defined by the terminal nodes, 
+and $$b_{jk}$$ represents the predicted values of the corresponding terminal node. 
+So we can rewrite the $$F_{k,m}(X)$$ to 
+```math
+F_{k,m}(X) = F_{k,m-1}(X) + \sum^{J}_{j=1}\gamma_{jkm}1(X\in R_{jkm}),
+```
+where $$\gamma_{jkm}=\rho_m b_{jkm}$$.
 
+$$\gamma_{jkm}$$ can be computed by 
+```math
+\gamma_{jkm} = \text{argmin}_{\gamma}\sum_{X\in R_{jkm}} L(y_k, F_{k,m-1}(X)+\gamma)
+```
+Since $$\gamma$$ is a small amount, we can do Taylor expansion ($$m$$ index is ignored in this step):
+```math
+L(y_k, F_{k}(X)+\gamma) = L(y_k, F_{k}(X)) + \frac{\partial L}{\partial F_k}\gamma + \frac{1}{2}\frac{\partial^2 L}{\partial F_k^2}\gamma^2
+```
+So we can compute the derivative with respect to $$\gamma$$:
+```math
+\frac{\partial L}{\partial \gamma} = \frac{\partial L}{\partial F_k} + \frac{\partial^2 L}{\partial F_k^2}
+```
