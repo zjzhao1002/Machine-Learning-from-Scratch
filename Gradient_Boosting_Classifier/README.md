@@ -91,9 +91,43 @@ $$\gamma_{jkm}$$ can be computed by
 ```
 Since $$\gamma$$ is a small amount, we can do Taylor expansion ($$m$$ index is ignored in this step):
 ```math
-L(y_k, F_{k}(X)+\gamma) = L(y_k, F_{k}(X)) + \frac{\partial L}{\partial F_k}\gamma + \frac{1}{2}\frac{\partial^2 L}{\partial F_k^2}\gamma^2
+L(y_k, F_{k}(X)+\gamma) = L(y_k, F_{k}(X)) + \frac{\partial L}{\partial F_k}\gamma + \frac{1}{2}\frac{\partial^2 L}{\partial F_k^2}\gamma^2 +...
 ```
 So we can compute the derivative with respect to $$\gamma$$:
 ```math
-\frac{\partial L}{\partial \gamma} = \frac{\partial L}{\partial F_k} + \frac{\partial^2 L}{\partial F_k^2}
+\frac{\partial L}{\partial \gamma} \approx \frac{\partial L}{\partial F_k} + \frac{\partial^2 L}{\partial F_k^2}
 ```
+We already know that $$\partial L / \partial F_k$$ is the residual, so we just need to calculate the second derivative. 
+Similar to the first derivative, we have
+```math
+\frac{\partial^2 L(\{y_{ik}, F_k(X_i)\}^K_1)}{\partial F^2_k(X_i)} = p_k(X_i)(1 - p_k(X_i))
+```
+When the loss function is minimized, we have $$\partial L / \partial \gamma = 0$$, so we finally get the gamma:
+```math
+\gamma_{jkm} = -\frac{\partial L / \partial F_k}{\partial^2 L / \partial F^2_k} = \frac{y_{ik} - p_k(X_i)}{p_k(X_i)(1 - p_k(X_i))} (X_i\in R_{jkm})
+```
+Finally, we can update the values in terminal nodes by $$\gamma_{jkm}$$, and the model output should be updated by 
+```math
+F_{k,m}(X) = F_{k,m-1}(X) + \eta\sum^{J}_{j=1}\gamma_{jkm}1(X\in R_{jkm}),
+```
+where $$\eta$$ is the `learning_rate`.
+
+### Model Training
+I summarize the training steps in this subsection:
+1. Initialize the model with a constant value.
+2. Compute the pseudo residuals $$r_{ik} = -\frac{\partial L(\\{y_{ik}, F_k(X_i)\\}^K_1)}{\partial F_k(X_i)}$$.
+3. Fit $$K$$ base models (regression tree in this case) to the pseudo residuals. For each tree, we have $$J$$ teminal regions $$R_{jk}$$.
+4. For each region, we compute the $$\gamma_{jkm}$$ and update the model output.
+5. Repeat step 2 to 5 until $$m=M$$.
+
+## Result
+With the hyperparameters `n_estimators=3`, `learning_rate=0.1` and `max_depth=2`, 
+I got 98.3% accuracy for training set and 90% for test set. 
+It seems that this model works well, but is slightly overfitting. 
+Iris Species is a small dataset and I took 20% data samples for the test set. 
+This small amount of test data samples may make the predictions of test set worse.
+
+## Conclusion
+I built a gradient boosting classifier from scratch to understand this algorithm. 
+This model is test by the [Iris Species](https://www.kaggle.com/datasets/uciml/iris) dataset. 
+This model gives a high accuracy.
