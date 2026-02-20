@@ -64,3 +64,4 @@ Now we can train $$K$$ models to fit the pseudo residuals.
 Since it becomes a problem to predict continuous variables, we should use a regression model like 
 [decision tree regressor](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Decision_Tree_Regressor).
 However, this model can only predict the **pseudo** residuals rather than the $$F_k(X)$$.
+
