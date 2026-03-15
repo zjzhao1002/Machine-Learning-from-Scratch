@@ -22,9 +22,9 @@ The recursion is completed when the subset at a node has all the same values of 
 or when splitting no longer adds value to the predictions.
 This last node is known as a leaf node. 
 
-### Impurity and Lost Function
-As in other machine learning models, the lost function is the basis of this algorithm. 
-The most useful lost function is **entropy** in decision tree.
+### Impurity and Loss Function
+As in other machine learning models, the loss function is the basis of this algorithm. 
+The most useful loss function is **entropy** in decision tree.
 
 Entropy is defined by
 ```math
