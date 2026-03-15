@@ -10,9 +10,9 @@ This model is test by the [Student Performance](https://www.kaggle.com/datasets/
 The goal is predicting the student performance by using other features.
 
 ## Algorithm
-### Lost Function
-The main difference between a classifier and regressor is the lost function. 
-In a regression problem, we are going to predict a continuous value, so we can just use variance as the lost function:
+### Loss Function
+The main difference between a classifier and regressor is the loss function. 
+In a regression problem, we are going to predict a continuous value, so we can just use variance as the loss function:
 ```math
 S = \frac{1}{n}\sum_i(y_i-\bar{y})^2
 ```
