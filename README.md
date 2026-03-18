@@ -11,6 +11,8 @@ The following models have been built and test:
 * [Random Forest](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Random_Forest)
 * [Adaptive Boosting (AdaBoost)](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/AdaBoost)
 * [Gradient Boosting Machine (Regression)](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Gradient_Boosting_Regressor)
+* [Gradient Boosting Machine (Classification)](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/Gradient_Boosting_Classifier)
+* [XGBoost](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/tree/main/XGBoost)
 
 There is also an generative pre-trained transformer (GPT) in ohter repository:
 * [Generative Pre-Trained Transformer (GPT)](https://github.com/zjzhao1002/GPT-from-Scratch)
