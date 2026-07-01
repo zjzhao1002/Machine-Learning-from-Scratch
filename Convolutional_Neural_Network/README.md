@@ -32,7 +32,7 @@ Assuming the input vector is $\vec{x}$ and the output vector is $\vec{z}$, each 
 ```math
 z_i = \omega_1x_{i-1} + \omega_2x_{i} + \omega_3x_{i+1}
 ```
-The same weights $(\omega_1, \omega_2, omega_3)$ are used at every position and collectively called the convolutional kernel or filter. 
+The same weights $(\omega_1, \omega_2, \omega_3)$ are used at every position and collectively called the convolutional kernel or filter. 
 The size of the region over which inputs are combined is termed the kernel size. In previous equation, the kernel size is 3.
 
 ![Kernels](https://github.com/zjzhao1002/Machine-Learning-from-Scratch/blob/main/Convolutional_Neural_Network/Conv1a.svg)
